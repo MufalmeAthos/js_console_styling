@@ -1,138 +1,138 @@
 <html>
     <head>
         <title>How to color console.log() text</title>
+        <style>
+            body{
+                /* text-align:center; */
+                margin: 20px;
+            }
+            h1{
+                color: blue;text-transform: uppercase;
+            }
+
+            pre{
+                background-color: beige;
+                display: inline-block;
+
+            }
+        </style>
     </head>
-<body >
-    <style>
-        body{
-            /* text-align:center; */
-            margin: 20px;
-        }
-        h1{
-            color: blue;text-transform: uppercase;
-        }
-
-        pre{
-            background-color: beige;
-            display: inline-block;
-
-        }
-    </style>
-    <h1 style="color: blue;text-transform: uppercase;">Colored Console.log - JS</h1>
-    <a href="mailto:atholabahizire@gmail.com">By Athola Bahizire</a>
-    <p>This page contains Java Script codes used to add styles to the console.log(). <br>
-        The debug text mostly used in javascript.
-         In this page we use some CSS to style the text present in the console.log() method. 
-    </p>
-    <p> 
-        <h4> Printing to the developer console with <pre>%c</pre> </h4>
-        We can apply our own styling to a log message by doing two things:
-        <ul>
-           <li>Prefixing the message with the <pre>%c</pre> flag</li> 
-           <li>Providing a string of CSS as the second parameter</li> 
-           <li>As a simple example, we can make the log message orange.</li> 
-        </ul>
-        
-        
-        <pre>console.log("%cLog Message", "color: orange");</pre> <br>
-        You might notice that %c will inject the CSS styles specified in the second argument into that location. <br>
-        Check the console and the script for more details. <br> Thanks
-<tr>
+    <body >
+        <h1 style="color: blue;text-transform: uppercase;">Colored Console.log - JS</h1>
+        <a href="mailto:atholabahizire@gmail.com">By Athola Bahizire</a>
+        <p>This page contains Java Script codes used to add styles to the console.log(). <br>
+            The debug text mostly used in javascript.
+            In this page we use some CSS to style the text present in the console.log() method. 
+        </p>
+        <p> 
+            <h4> Printing to the developer console with <pre>%c</pre> </h4>
+            We can apply our own styling to a log message by doing two things:
+            <ul>
+                <li>Prefixing the message with the <pre>%c</pre> flag</li> 
+                <li>Providing a string of CSS as the second parameter</li> 
+                <li>As a simple example, we can make the log message orange.</li> 
+            </ul>
+            
+            
+            <pre>console.log("%cLog Message", "color: orange");</pre> <br>
+            You might notice that %c will inject the CSS styles specified in the second argument into that location. <br>
+            Check the console and the script for more details. <br> Thanks
+            <tr>
 
 
-        <h4> Reference </h4>
-        <a href="https://simplernerd.com/js-console-colors/">https://simplernerd.com/js-console-colors/</a>
-        <br>
-        <a href="https://github.com/MufalmeAthos/colored_console_log_JS">https://github.com/MufalmeAthos/colored_console_log_JS</a>
+            <h4> Reference </h4>
+            <a href="https://simplernerd.com/js-console-colors/">https://simplernerd.com/js-console-colors/</a>
+            <br>
+            <a href="https://github.com/MufalmeAthos/colored_console_log_JS">https://github.com/MufalmeAthos/colored_console_log_JS</a>
 
-    </p>
-        
-<script>
-    //-----------
-        console.log(
-            "%coklm",
-        `
-        color: #00a084;
-        background-color: #ffbdeb;
-        padding: 2px 4px;
-        border-radius: 2px;
-        `
-            );
-//------------------------
-            const Style = {
-                base: [
-                    "color: #fff",
-                    "background-color: #444",
-                    "padding: 2px 4px",
-                    "border-radius: 2px"
-                ],
-                warning: [
-                    "color: #eee",
-                    "background-color: red"
-                ],
-                success: [
-                    "background-color: green"
-                ]
-            }
-            const log = (text, extra = []) => {
-                let style = Style.base.join(';') + ';';
-                style += extra.join(';'); // Add any additional styles
-                console.log(`%c${text}`, style);
-            }
+        </p>
+            
+    <script>
+        //-----------
+            console.log(
+                "%coklm",
+            `
+            color: #00a084;
+            background-color: #ffbdeb;
+            padding: 2px 4px;
+            border-radius: 2px;
+            `
+                );
+    //------------------------
+                const Style = {
+                    base: [
+                        "color: #fff",
+                        "background-color: #444",
+                        "padding: 2px 4px",
+                        "border-radius: 2px"
+                    ],
+                    warning: [
+                        "color: #eee",
+                        "background-color: red"
+                    ],
+                    success: [
+                        "background-color: green"
+                    ]
+                }
+                const log = (text, extra = []) => {
+                    let style = Style.base.join(';') + ';';
+                    style += extra.join(';'); // Add any additional styles
+                    console.log(`%c${text}`, style);
+                }
 
-            log("Normal Logs");
-            log("Warning Logs", Style.warning);
-            log("Success Logs", Style.success);
+                log("Normal Logs");
+                log("Warning Logs", Style.warning);
+                log("Success Logs", Style.success);
 
-//------------
+    //------------
 
-    console.log("\x1b[33m%s\x1b[0m", "Log Message"); // yellow text
-    // -----------------------
+        console.log("\x1b[33m%s\x1b[0m", "Log Message"); // yellow text
+        // -----------------------
 
-    const Log = {
-  reset: "\x1b[0m",
-  bright: "\x1b[1m",
-  dim: "\x1b[2m",
-  underscore: "\x1b[4m",
-  blink: "\x1b[5m",
-  reverse: "\x1b[7m",
-  hidden: "\x1b[8m",
-  // Foreground (text) colors
-  fg: {
-    black: "\x1b[30m",
-    red: "\x1b[31m",
-    green: "\x1b[32m",
-    yellow: "\x1b[33m",
-    blue: "\x1b[34m",
-    magenta: "\x1b[35m",
-    cyan: "\x1b[36m",
-    white: "\x1b[37m",
-    crimson: "\x1b[38m"
-  },
-  // Background colors
-  bg: {
-    black: "\x1b[40m",
-    red: "\x1b[41m",
-    green: "\x1b[42m",
-    yellow: "\x1b[43m",
-    blue: "\x1b[44m",
-    magenta: "\x1b[45m",
-    cyan: "\x1b[46m",
-    white: "\x1b[47m",
-    crimson: "\x1b[48m"
-  }
-};
+        const Log = {
+    reset: "\x1b[0m",
+    bright: "\x1b[1m",
+    dim: "\x1b[2m",
+    underscore: "\x1b[4m",
+    blink: "\x1b[5m",
+    reverse: "\x1b[7m",
+    hidden: "\x1b[8m",
+    // Foreground (text) colors
+    fg: {
+        black: "\x1b[30m",
+        red: "\x1b[31m",
+        green: "\x1b[32m",
+        yellow: "\x1b[33m",
+        blue: "\x1b[34m",
+        magenta: "\x1b[35m",
+        cyan: "\x1b[36m",
+        white: "\x1b[37m",
+        crimson: "\x1b[38m"
+    },
+    // Background colors
+    bg: {
+        black: "\x1b[40m",
+        red: "\x1b[41m",
+        green: "\x1b[42m",
+        yellow: "\x1b[43m",
+        blue: "\x1b[44m",
+        magenta: "\x1b[45m",
+        cyan: "\x1b[46m",
+        white: "\x1b[47m",
+        crimson: "\x1b[48m"
+    }
+    };
 
-let log_ = (color, text) => {
-  console.log(`${color}%s${Log.reset}`, text);
-};
-log_(Log.fg.red, "My text is red");
-log_(Log.bg.cyan, "My background is cyan");
+    let log_ = (color, text) => {
+    console.log(`${color}%s${Log.reset}`, text);
+    };
+    log_(Log.fg.red, "My text is red");
+    log_(Log.bg.cyan, "My background is cyan");
 
-/*
-By: Athola bahizire
-Docs: https://simplernerd.com/js-console-colors
-*/
-</script>
-</body>
+    /*
+    By: Athola bahizire
+    Docs: https://simplernerd.com/js-console-colors
+    */
+    </script>
+    </body>
 </html>
